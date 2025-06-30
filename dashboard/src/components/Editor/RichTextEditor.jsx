@@ -8,8 +8,9 @@ import {
 import "draft-js/dist/Draft.css";
 import "./RichEditor.css";
 
-const RichTextEditor = ({setInputText}) => {
+const RichTextEditor = ({ setInputText }) => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
+  const [textCount, setTextCount] = useState(0); // ✅ Character count state
   const editorRef = useRef(null);
 
   const focus = () => editorRef.current && editorRef.current.focus();
@@ -18,7 +19,7 @@ const RichTextEditor = ({setInputText}) => {
     setEditorState(newState);
     const plainText = newState.getCurrentContent().getPlainText();
     setInputText(plainText);
-    // console.log("Updated Text:", plainText);
+    setTextCount(plainText.length); // ✅ Update character count
   };
 
   const handleKeyCommand = useCallback((command, editorState) => {
@@ -45,15 +46,12 @@ const RichTextEditor = ({setInputText}) => {
   const toggleInlineStyle = (inlineStyle) =>
     onChange(RichUtils.toggleInlineStyle(editorState, inlineStyle));
 
-  const logPlainText = () => {
-    const plainText = editorState.getCurrentContent().getPlainText();
-    console.log("Text:", plainText);
-  };
-
   let className = "RichEditor-editor";
   const contentState = editorState.getCurrentContent();
-  if (!contentState.hasText() &&
-      contentState.getBlockMap().first().getType() !== "unstyled") {
+  if (
+    !contentState.hasText() &&
+    contentState.getBlockMap().first().getType() !== "unstyled"
+  ) {
     className += " RichEditor-hidePlaceholder";
   }
 
@@ -81,6 +79,9 @@ const RichTextEditor = ({setInputText}) => {
           ref={editorRef}
           spellCheck={true}
         />
+      </div>
+      <div className="text-right text-sm text-gray-500 mt-1">
+        {textCount} / 10000
       </div>
     </div>
   );
