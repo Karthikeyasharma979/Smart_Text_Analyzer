@@ -8,7 +8,7 @@ import {
 import "draft-js/dist/Draft.css";
 import "./RichEditor.css";
 
-const RichTextEditor = () => {
+const RichTextEditor = ({setInputText}) => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const editorRef = useRef(null);
 
@@ -17,7 +17,8 @@ const RichTextEditor = () => {
   const onChange = (newState) => {
     setEditorState(newState);
     const plainText = newState.getCurrentContent().getPlainText();
-    console.log("Updated Text:", plainText);
+    setInputText(plainText);
+    // console.log("Updated Text:", plainText);
   };
 
   const handleKeyCommand = useCallback((command, editorState) => {
