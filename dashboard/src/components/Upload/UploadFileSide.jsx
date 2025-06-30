@@ -63,7 +63,7 @@ function UploadFileSide() {
               <p className="file-selected">{fileName} selected</p>
             )}
 
-            <button onClick={handleContinue} className="upload-button">
+            <button onClick={handleContinue} className="upload-button btn-primary">
               Upload & Continue
             </button>
           </div>

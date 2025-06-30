@@ -86,10 +86,10 @@ function Sidebar() {
               className={`flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 ${
                 minimized ? "justify-center" : ""
               }`}
-              to="/dashboard/generativeAI"
+              to="/dashboard/summarizer"
             >
               <span className="material-icons mr-3 text-gray-500">auto_awesome</span>
-              {!minimized && "Generative AI"}
+              {!minimized && "Summarizer"}
             </Link>
           </li>
           <li>
