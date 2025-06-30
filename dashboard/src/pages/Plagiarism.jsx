@@ -20,7 +20,7 @@ function Plagiarism() {
           <button className="btn-primary w-full max-w-xs mt-2">Compare Now</button>
           <p className="text-xs text-gray-500 mt-2">Note: We don't save any data on our servers.</p>
         </div>
-        <TipSection />
+        {/* <TipSection /> */}
         <ComparisonReport firstDoc={fakeDocText} secondDoc={fakeDocText} />
       </div>
     </div>

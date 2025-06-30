@@ -3,11 +3,6 @@ function TextInputPanel({ placeholder, count }) {
   return (
     <div className="border border-gray-200 rounded-lg">
       <div className="p-4 border-b border-gray-200">
-        <div className="flex space-x-2 mb-3">
-          <button className="btn-active">Text</button>
-          <button className="btn-inactive">File</button>
-          <button className="btn-inactive">Link</button>
-        </div>
         <textarea
           className="w-full h-64 p-3 border border-gray-300 rounded-md resize-none focus:ring-blue-500 focus:border-blue-500 custom-scrollbar"
           placeholder={placeholder}

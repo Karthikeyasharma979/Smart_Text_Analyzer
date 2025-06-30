@@ -1,5 +1,5 @@
-import "./Plagiarism.css"
 import MatchStats from './MatchStats';
+
 
 function ComparisonReport({ firstDoc, secondDoc }) {
   return (

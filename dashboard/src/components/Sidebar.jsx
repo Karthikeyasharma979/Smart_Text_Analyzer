@@ -97,10 +97,10 @@ function Sidebar() {
               className={`flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 ${
                 minimized ? "justify-center" : ""
               }`}
-              to="/dashboard/settings"
+              to="/dashboard/plagiarism"
             >
-              <span className="material-icons mr-3 text-gray-500">account_circle</span>
-              {!minimized && "Account"}
+              <span className="material-symbols-outlined mr-3 text-gray-500">plagiarism</span>
+              {!minimized && "Plagiarism"}
             </Link>
           </li>
           <li>
@@ -108,10 +108,10 @@ function Sidebar() {
               className={`flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 ${
                 minimized ? "justify-center" : ""
               }`}
-              to="/get-pro"
+              to="/dashboard/settings"
             >
-              <span className="material-icons mr-3 text-gray-500">history</span>
-              {!minimized && "History"}
+              <span className="material-icons mr-3 text-gray-500">account_circle</span>
+              {!minimized && "Account"}
             </Link>
           </li>
         </ul>

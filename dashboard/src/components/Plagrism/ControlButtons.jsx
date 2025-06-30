@@ -1,4 +1,4 @@
-import "./Plagiarism.css"
+
 function ControlButtons() {
   const icons = ["content_copy", "delete", "settings", "fullscreen"];
   return (

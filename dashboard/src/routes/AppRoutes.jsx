@@ -19,7 +19,7 @@ const AppRoutes = () => {
       <Route path="/dashboard/editor/*" element={<Editor />} />
       <Route path="/dashboard/upload/*" element={<Upload />} />
       <Route path="/dashboard/summarizer" element={<Summarizer/>} />
-      <Route path="/dashboard/settings" element={<Plagiarism />} />
+      <Route path="/dashboard/plagiarism" element={<Plagiarism />} />
       <Route path="*" element={<Page404/>} />
     </Routes>
   );
