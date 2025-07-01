@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "./Editor.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 function PlagiarismSidebar({text}) {
-  const [AI,setAI]=useState(44)
-  const [Plagiarism ,setPlagiarism ]=useState(44)
+  const [AI,setAI]=useState(0)
+  const [Plagiarism ,setPlagiarism ]=useState(0)
   const onCheck=()=>{
-    setAI(89)
-    setPlagiarism(89)
+    
+    setAI(Math.floor(Math.random() * (100 - 1 + 1)) + 1)
+    setPlagiarism(Math.floor(Math.random() * (100 - 1 + 1)) + 1)
   }
   return (
     <aside
@@ -94,17 +96,6 @@ function PlagiarismSidebar({text}) {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Bottom Settings */}
-      <div className="p-4 border-t border-gray-200">
-        <button className="flex items-center text-sm text-gray-600 hover:text-gray-800 w-full">
-          <span className="material-icons text-base mr-2">settings</span>
-          Adjust detection settings
-          <span className="material-icons text-gray-400 text-base ml-auto">
-            chevron_right
-          </span>
-        </button>
       </div>
     </aside>
   );

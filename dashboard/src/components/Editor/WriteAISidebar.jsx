@@ -122,15 +122,6 @@ function WriteAISidebar() {
           </div>
         </div>
       </div>
-
-      {/* Footer Settings */}
-      <div className="p-4 border-t border-gray-200">
-        <button className="flex items-center text-sm text-gray-600 hover:text-gray-800 w-full">
-          <span className="material-icons text-base mr-2">settings</span>
-          Adjust generation settings
-          <span className="material-icons text-gray-400 text-base ml-auto">chevron_right</span>
-        </button>
-      </div>
     </aside>
   );
 }

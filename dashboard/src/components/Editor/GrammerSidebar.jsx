@@ -8,6 +8,7 @@ function GrammarSidebar({ inputText }) {
   const [engagement, setEngagement] = useState(false);
   const [delivery, setDelivery] = useState(false);
   const [score, setScore] = useState(85);
+  const [tone, setTone] = useState("");
 
   const [improveText, setImproveText] = useState([
     { word: "We're", highlight: false },
@@ -28,15 +29,14 @@ function GrammarSidebar({ inputText }) {
   ]);
 
   useEffect(() => {
-    // Debounce update on text change
     const handler = setTimeout(() => {
-      setCorrectness(true);
-      setClarity(true);
-      setEngagement(true);
-      setDelivery(true);
-      setScore(85); // static, can be dynamic later
+      setCorrectness(!correctness);
+      setClarity(!clarity);
+      setEngagement(!engagement);
+      setDelivery(!delivery);
+      setScore(Math.floor(Math.random() * (100 - 1 + 1)) + 1);
     }, 1000);
-    console.log("Every Time check")
+    console.log("Every Time check");
     return () => clearTimeout(handler);
   }, [inputText]);
 
@@ -161,9 +161,7 @@ function GrammarSidebar({ inputText }) {
             {improveText.map((item, index) => (
               <span
                 key={index}
-                className={`px-1 rounded ${
-                  item.highlight ? item.color : ""
-                }`}
+                className={`px-1 rounded ${item.highlight ? item.color : ""}`}
               >
                 {item.word}
               </span>
@@ -187,6 +185,28 @@ function GrammarSidebar({ inputText }) {
               <span className="material-icons text-base">more_horiz</span>
             </button>
           </div>
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="tone"
+            className="block text-xs font-medium text-gray-700 mb-1"
+          >
+            Tone
+          </label>
+          <select
+            id="tone"
+            name="tone"
+            className="w-full border border-gray-300 rounded-md p-2 text-sm focus:ring-purple-500 focus:border-purple-500"
+            value={tone}
+            onChange={(e) => setTone(e.target.value)}
+          >
+            <option value="">Select Tone</option>
+            <option>Casual</option>
+            <option>Formal</option>
+            <option>Professional</option>
+            <option>Enthusiastic</option>
+            <option>Skeptical</option>
+          </select>
         </div>
       </div>
 
