@@ -587,6 +587,8 @@ def internal_error(error):
     logger.error(f"Internal server error: {error}")
     return jsonify({"error": "Internal server error"}), 500
 
+'''document.py starts here from now onwards'''
+
 if __name__ == "__main__":
     port = int(os.getenv('PORT', 4000))
     debug = os.getenv('DEBUG', 'True').lower() == 'true'
