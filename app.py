@@ -10,6 +10,7 @@ from routestxt.health_routes import health_check, not_found, internal_error
 from routes.upload import upload_bp
 from routes.query import query_bp
 
+from humanizetext.humanizeit import humanizer_bp
 from humanizetext.plaigarismcheck import check_bp
 
 logging.basicConfig(level=logging.INFO)
@@ -25,7 +26,7 @@ app.add_url_rule('/tones', 'get_available_tones', get_available_tones, methods=[
 app.add_url_rule('/users', 'get_users', get_users, methods=['GET'])
 app.add_url_rule('/register', 'register', register, methods=['POST'])
 app.add_url_rule('/login', 'login', login, methods=['POST'])
-
+app.register_blueprint(humanizer_bp)
 app.register_blueprint(upload_bp)
 app.register_blueprint(query_bp)
 app.register_blueprint(check_bp)
